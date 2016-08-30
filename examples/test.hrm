@@ -1,0 +1,14 @@
+pull 12
+push 11
+*2 incr 11
+loop
+	read -> 1
+	2 = 1 * 11 | 10
+	if 2 > 12
+		if 5 = 12
+		else
+			out <- 2
+		fi
+	else
+	fi
+repeat

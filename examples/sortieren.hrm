@@ -1,0 +1,81 @@
+# BUBBLE SORT FOR HUMAN RESSOURCE MACHINE
+# 23 - current field
+# 22 - length of string
+# 21 - field ahead of current
+# 24 - constant 0
+# 20 - tmp memory field for position switch
+
+loop
+	## init
+	
+	# counter on 23
+	# maxcounter on 22
+	pull 24
+	push 22
+	push 23
+	decr 23
+	loop
+		incr 23
+		read -> [23]
+		# --------- CORRECT ZERO COMPARISMENT!
+		# --------- (just delete 'SUB 24')
+		# --------- otherwise it wont work for letters
+	endif [23] = 24
+	pull 23
+	push 22
+	decr 22
+	## end init
+	
+	## catch one-length string
+	if 22 = 24
+		out <- [24]
+		# --------- ADD JUMP TO BEGINNING
+		# --------- (just move label to the top)
+	else
+	fi
+	
+	## init sort
+	
+	pull 24
+	push 23
+	
+	## sort
+	loop
+		
+		# set 'field ahead' correctly
+		pull 23
+		push 21
+		incr 21
+		
+		# -> wrong order, switch positions
+		if [21] < [23]
+			pull [21]
+			push 20
+			pull [23]
+			push [21]
+			pull 20
+			push [23]
+			
+			# if first entry, no going backward
+			if 23 = 24
+			else
+				# go backward if you switched positions
+				decr 23
+			fi
+		else
+			# go onward if no switching done
+			incr 23
+		fi
+	# last entry reached? break, then!
+	endif 23 = 22
+	
+	# reset counter
+	pull 24
+	push 23
+	
+	# out everything
+	loop
+		out <- [23]
+		incr 23
+	endif 23 > 22	
+repeat

@@ -1,0 +1,20 @@
+loop
+	read -> 2
+	pull 14
+	push 1
+	push 5
+	decr 1
+	loop
+		5 = 5 + 15
+		incr 1
+	endif 5 > 2
+	pull 2
+	push 3
+	loop
+		pull 3
+		push 2
+		3 = 2 - 15
+	endif 3 < 14
+	out <- 2
+	out <- 1
+repeat

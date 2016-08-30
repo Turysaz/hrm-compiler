@@ -1,0 +1,7 @@
+read -> 12
+loop
+	out <- [12]
+	incr 12
+	pull [12]
+	push 12
+repeat
