@@ -1,6 +1,4 @@
-# Human Ressource Machine
-# Turysembler - Compiler
-# v 1.0
+# Human Ressource Machine - Language Specification
 
 ---
 
